@@ -6,7 +6,7 @@ You can use it with the standard arguments to generate your acronym:
 ```dart
 import 'package:acronym/acronym.dart';
 
-final String output = Acronym.generateAcronym(input);
+final String output = generateAcronym(input);
 print(output); // "USA"
 ```
 
@@ -25,7 +25,7 @@ import 'package:acronym/acronym.dart';
 const String input = "The United States of America";
 final String output1 = input.acronym(stopWords: EnglishStopWords().stopWords);
 
-final String output1 = Acronym.generateAcronym(input, stopWords: EnglishStopWords().stopWords);
+final String output1 = generateAcronym(input, stopWords: EnglishStopWords().stopWords);
 print(output); // "USA"
 ```
 
@@ -36,9 +36,3 @@ const String input = "The United States of America";
     final String output = input.acronym(stopWords: stopWords);
     print(output); //UA
 ```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.

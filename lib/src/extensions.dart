@@ -1,4 +1,4 @@
-import 'package:acronym/src/acronym_base.dart' as acr;
+import 'package:acronym/src/acronym_base.dart';
 
 extension RemovePunctuation on String {
   /// Removes Punctioation from a string
@@ -26,6 +26,6 @@ extension AcronymString on String {
   /// Example:
   /// "The United States of America" -> "USA"
   String acronym({List<String>? stopWords}) {
-    return acr.Acronym.generateAcronym(this, stopWords: stopWords);
+    return generateAcronym(this, stopWords: stopWords);
   }
 }

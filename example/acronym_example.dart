@@ -7,13 +7,13 @@ void main() {
   const String input = "The United States of America";
 
   // Generate the acronym with the default Values
-  final String output = Acronym.generateAcronym(input);
+  final String output = generateAcronym(input);
   print(output); // "USA"
 
   const List<String> stopWords = ["the", "of", "states"];
 
   // Generate the acronym with the [stopWords] to exlude the words ["the", "of", "states"]
-  final String output2 = Acronym.generateAcronym(input, stopWords: stopWords);
+  final String output2 = generateAcronym(input, stopWords: stopWords);
   print(output2); // "UA"
 
   // Generate the acronym with the extension
