@@ -23,7 +23,8 @@ String generateAcronym(String input, {List<String>? stopWords}) {
     );
   }
   final List<String> words = clearedString.tokenize();
-  final filtered = words.where((it) => !_stopWords.contains(it.toLowerCase())).toList();
+  final filtered =
+      words.where((it) => !_stopWords.contains(it.toLowerCase())).toList();
   final acronym = filtered.map((it) => it[0]).join();
   return acronym;
 }
