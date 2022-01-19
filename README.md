@@ -16,7 +16,7 @@ Sample usage with the extension:
 import 'package:acronym/acronym.dart';
 
 const String input = "The United States of America";
-final String output = input.acronym();
+final String output = input.toAcronym();
 print(output); // "USA"
 ```
 
@@ -25,7 +25,7 @@ You can use it with stop words like this:
 import 'package:acronym/acronym.dart';
 
 const String input = "The United States of America";
-final String output1 = input.acronym(stopWords: stopWords);
+final String output1 = input.toAcronym(stopWords: stopWords);
 
 final String output1 = generateAcronym(input, stopWords: stopWords);
 print(output); // "USA"
@@ -37,7 +37,7 @@ import 'package:acronym/acronym.dart';
 
 const String input = "The United States of America";
 final List<String> stopWords = [...stopWords, "states"];
-final String output = input.acronym(stopWords: stopWords);
+final String output = input.toAcronym(stopWords: stopWords);
 print(output); //UA
 ```
 
@@ -46,6 +46,6 @@ If you want to generate the Acronym without any words you can do it like this
 import 'package:acronym/acronym.dart';
 
 const String input = "The United States of America";
-final String output = input.acronym(stopWords: []);
+final String output = input.toAcronym(stopWords: []);
 print(output); //TUSOA
 ```

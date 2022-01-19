@@ -16,10 +16,10 @@ void main() {
   print(output2); // "UA"
 
   // Generate the acronym with the extension
-  final String output3 = input.acronym();
+  final String output3 = input.toAcronym();
   print(output3); // "USA"
 
   // Generate the acronym with the extension using the [stopWords] to exlude the words ["the", "of", "states"]
-  final String output4 = input.acronym(stopWords: stopWords);
+  final String output4 = input.toAcronym(stopWords: stopWords);
   print(output4); // "UA"
 }
