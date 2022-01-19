@@ -614,3 +614,11 @@ class EnglishStopWords implements StopWords {
         "z"
       ];
 }
+
+class NoStopWords implements StopWords {
+  @override
+  List<String> get stopWords => [];
+
+  @override
+  List<String> get stopWordsWithNumbers => [];
+}

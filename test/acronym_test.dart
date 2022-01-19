@@ -1,10 +1,9 @@
 import 'package:acronym/acronym.dart';
+import 'package:acronym/src/stopwords.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test(
-      'Should throw an error if the given String only contains punctuation symbols',
-      () {
+  test('Should throw an error if the given String only contains punctuation symbols', () {
     expect(
       () => Acronym.generateAcronym(','),
       throwsA(const TypeMatcher<ArgumentError>()),
@@ -44,6 +43,11 @@ void main() {
       () => Acronym.generateAcronym(''),
       throwsA(const TypeMatcher<ArgumentError>()),
     );
+  });
+
+  test('Should return TUSOA', () {
+    const String input = "The United States of America";
+    expect(Acronym.generateAcronym(input, stopWords: NoStopWords().stopWords), equals('TUSOA'));
   });
   group('Should create acronyms for "The United States of America"', () {
     const String input = "The United States of America";

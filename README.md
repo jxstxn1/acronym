@@ -1,35 +1,32 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+A simple, lightweight and easy to use package to generate acronyms.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
+You can use it with the standard arguments to generate your acronym:
 ```dart
-const like = 'sample';
+import 'package:acronym/acronym.dart';
+
+final String output = Acronym.generateAcronym(input);
+print(output); // "USA"
+```
+
+Sample usage with the extension:
+```dart
+import 'package:acronym/acronym.dart';
+const String input = "The United States of America";
+final String output = input.acronym();
+print(output); // "USA"
+```
+
+You can use it with stop Words like this:
+```dart
+import 'package:acronym/acronym.dart';
+
+const String input = "The United States of America";
+final String output1 = input.acronym(stopWords: EnglishStopWords().stopWords);
+
+final String output1 = Acronym.generateAcronym(input, stopWords: EnglishStopWords().stopWords);
+print(output); // "USA"
 ```
 
 ## Additional information
