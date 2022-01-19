@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_classes_with_only_static_members
 
 import 'package:acronym/src/extensions.dart';
-import 'package:acronym/src/stopwords.dart';
+import 'package:acronym/src/stopwords.dart' as word;
 import 'package:recase/recase.dart';
 
 /// Generates a acronym out of the given String.
@@ -14,7 +14,7 @@ import 'package:recase/recase.dart';
 /// Returns a String containing the acronym.
 String generateAcronym(String input, {List<String>? stopWords}) {
   String acronym = '';
-  final _stopWords = stopWords ?? EnglishStopWords().stopWords;
+  final _stopWords = stopWords ?? word.stopWords;
   final ReCase recase = ReCase(input);
   final titleCaseString = recase.titleCase;
   final clearedString = titleCaseString.removePunctuation();

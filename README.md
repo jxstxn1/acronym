@@ -23,16 +23,23 @@ You can use it with stop words like this:
 import 'package:acronym/acronym.dart';
 
 const String input = "The United States of America";
-final String output1 = input.acronym(stopWords: EnglishStopWords().stopWords);
+final String output1 = input.acronym(stopWords: stopWords);
 
-final String output1 = generateAcronym(input, stopWords: EnglishStopWords().stopWords);
+final String output1 = generateAcronym(input, stopWords: stopWords);
 print(output); // "USA"
 ```
 
 Add your own stop words:
 ```dart
 const String input = "The United States of America";
-    final List<String> stopWords = [...EnglishStopWords().stopWordsWithNumbers, "states"];
-    final String output = input.acronym(stopWords: stopWords);
-    print(output); //UA
+final List<String> stopWords = [...stopWords, "states"];
+final String output = input.acronym(stopWords: stopWords);
+print(output); //UA
+```
+
+If you want to generate the Acronym without any words you can do it like this
+```dart
+const String input = "The United States of America";
+final String output = input.acronym(stopWords: []);
+print(output); //TUSOA
 ```

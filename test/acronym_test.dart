@@ -1,5 +1,4 @@
 import 'package:acronym/acronym.dart';
-import 'package:acronym/src/stopwords.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -47,7 +46,7 @@ void main() {
 
   test('Should return TUSOA', () {
     const String input = "The United States of America";
-    expect(generateAcronym(input, stopWords: NoStopWords().stopWords), equals('TUSOA'));
+    expect(generateAcronym(input, stopWords: []), equals('TUSOA'));
   });
   group('Should create acronyms for "The United States of America"', () {
     const String input = "The United States of America";

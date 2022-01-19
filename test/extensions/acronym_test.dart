@@ -1,4 +1,4 @@
-import 'package:acronym/acronym.dart';
+import 'package:acronym/acronym.dart' as acr;
 import 'package:test/test.dart';
 
 void main() {
@@ -10,7 +10,7 @@ void main() {
 
   test('Should return UA', () {
     const String input = "The United States of America";
-    final List<String> stopWords = [...EnglishStopWords().stopWordsWithNumbers, "states"];
+    final List<String> stopWords = [...acr.stopWords, "states"];
     final String output = input.acronym(stopWords: stopWords);
     expect(output, 'UA');
   });
