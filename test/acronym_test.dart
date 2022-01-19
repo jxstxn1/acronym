@@ -12,18 +12,19 @@ void main() {
     expect(() => Acronym.generateAcronym('.'), throwsA(const TypeMatcher<ArgumentError>()));
     expect(() => Acronym.generateAcronym(' '), throwsA(const TypeMatcher<ArgumentError>()));
   });
+
+  test('Should throw an error if the given String is empty', () {
+    expect(() => Acronym.generateAcronym(''), throwsA(const TypeMatcher<ArgumentError>()));
+  });
   group('Should create acronyms for "The United States of America"', () {
     const String input = "The United States of America";
     const List<String> stopWords = ["the", "of", "states"];
     test('should return "USA"', () {
       expect(Acronym.generateAcronym(input), equals('USA'));
     });
-    test('should return "usa"', () {
-      expect(Acronym.generateAcronym(input, returnType: AcronymReturnType.lowercase), equals('usa'));
-    });
     test('should return "UA"', () {
       expect(
-        Acronym.generateAcronym(input, returnType: AcronymReturnType.uppercase, stopWords: stopWords),
+        Acronym.generateAcronym(input, stopWords: stopWords),
         equals('UA'),
       );
     });
@@ -33,14 +34,11 @@ void main() {
     const String input = "phntm.xyz/sidekick";
     const List<String> stopWords = ["phntm", "xyz"];
     test('should return "PXS"', () {
-      expect(Acronym.generateAcronym(input, returnType: AcronymReturnType.uppercase), equals('PXS'));
+      expect(Acronym.generateAcronym(input), equals('PXS'));
     });
-    test('should return "pxyz"', () {
-      expect(Acronym.generateAcronym(input, returnType: AcronymReturnType.lowercase), equals('pxs'));
-    });
-    test('should return "PXYZ"', () {
+    test('should return "S"', () {
       expect(
-        Acronym.generateAcronym(input, returnType: AcronymReturnType.uppercase, stopWords: stopWords),
+        Acronym.generateAcronym(input, stopWords: stopWords),
         equals('S'),
       );
     });

@@ -1,14 +1,8 @@
 // ignore_for_file: avoid_classes_with_only_static_members
 
 import 'package:acronym/src/extensions.dart';
-import 'package:acronym/src/stopwords_en.dart';
+import 'package:acronym/src/stopwords.dart';
 import 'package:recase/recase.dart';
-
-/// Define the return type for the [acronym] method.
-///
-/// [lowercase] - If true, the acronym will be returned in lowercase.
-/// [uppercase] - If true, the acronym will be returned in uppercase.
-enum AcronymReturnType { lowercase, uppercase }
 
 class Acronym {
   /// Generates a acronym out of the given String.
@@ -20,8 +14,9 @@ class Acronym {
   /// Throws a [ArgumentError] if the [input] only contains punctuation symbols.
   ///
   /// Returns a String containing the acronym.
-  static String generateAcronym(String input, {AcronymReturnType? returnType, List<String> stopWords = stopWords}) {
+  static String generateAcronym(String input, {List<String>? stopWords}) {
     String acronym = '';
+    final _stopWords = stopWords ?? EnglishStopWords().stopWords;
     final ReCase recase = ReCase(input);
     final titleCaseString = recase.titleCase;
     final clearedString = titleCaseString.removePunctuation();
@@ -30,18 +25,10 @@ class Acronym {
     }
     final List<String> words = clearedString.tokenize();
     for (int i = 0; i < words.length; i++) {
-      if (!stopWords.contains(words[i].toLowerCase())) {
+      if (!_stopWords.contains(words[i].toLowerCase())) {
         acronym += words[i][0];
       }
     }
-
-    switch (returnType) {
-      case AcronymReturnType.lowercase:
-        return acronym.toLowerCase();
-      case AcronymReturnType.uppercase:
-        return acronym.toUpperCase();
-      default:
-        return acronym;
-    }
+    return acronym;
   }
 }

@@ -1,3 +1,5 @@
+import 'package:acronym/src/acronym_base.dart' as acr;
+
 extension RemovePunctuation on String {
   /// Removes Punctioation from a string
   /// Example:
@@ -14,5 +16,16 @@ extension Tokenize on String {
   /// "Hello world i am foo"; -> ["Hello", "world", "i", "am", "foo"]
   List<String> tokenize({String separator = "s"}) {
     return split(RegExp('\\$separator+'));
+  }
+}
+
+extension AcronymString on String {
+  /// Create a acronym from a string
+  /// Uses [englishStopWords] as default
+  ///
+  /// Example:
+  /// "The United States of America" -> "USA"
+  String acronym({List<String>? stopWords}) {
+    return acr.Acronym.generateAcronym(this, stopWords: stopWords);
   }
 }
