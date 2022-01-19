@@ -21,7 +21,8 @@ class Acronym {
     final titleCaseString = recase.titleCase;
     final clearedString = titleCaseString.removePunctuation();
     if (clearedString.isEmpty) {
-      throw ArgumentError('String contained no letters. Cannot create acronym. String: $input');
+      throw ArgumentError(
+          'String contained no letters. Cannot create acronym. String: $input');
     }
     final List<String> words = clearedString.tokenize();
     for (int i = 0; i < words.length; i++) {
