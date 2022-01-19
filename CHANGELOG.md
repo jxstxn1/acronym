@@ -2,3 +2,5 @@
 - Started with one acronym method and some modifiers
 ## 0.2.0
 - Add extension and improved Package API
+## 0.3.0
+- Rename extension to `toAcronym()`
