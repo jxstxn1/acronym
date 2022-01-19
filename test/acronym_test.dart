@@ -2,7 +2,9 @@ import 'package:acronym/acronym.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('Should throw an error if the given String only contains punctuation symbols', () {
+  test(
+      'Should throw an error if the given String only contains punctuation symbols',
+      () {
     expect(
       () => generateAcronym(','),
       throwsA(const TypeMatcher<ArgumentError>()),

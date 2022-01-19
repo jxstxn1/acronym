@@ -5,7 +5,8 @@ extension RemovePunctuation on String {
   /// Example:
   ///    "Hello, World!" -> "Hello World"
   String removePunctuation() {
-    const String regex = r'[^\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Connector_Punctuation}\p{Join_Control}\s]+';
+    const String regex =
+        r'[^\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Connector_Punctuation}\p{Join_Control}\s]+';
     return replaceAll(RegExp(regex, unicode: true), '');
   }
 }
