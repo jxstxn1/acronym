@@ -18,7 +18,7 @@ final String output = input.acronym();
 print(output); // "USA"
 ```
 
-You can use it with stop Words like this:
+You can use it with stop words like this:
 ```dart
 import 'package:acronym/acronym.dart';
 
@@ -27,6 +27,14 @@ final String output1 = input.acronym(stopWords: EnglishStopWords().stopWords);
 
 final String output1 = Acronym.generateAcronym(input, stopWords: EnglishStopWords().stopWords);
 print(output); // "USA"
+```
+
+Add your own stop words:
+```dart
+const String input = "The United States of America";
+    final List<String> stopWords = [...EnglishStopWords().stopWordsWithNumbers, "states"];
+    final String output = input.acronym(stopWords: stopWords);
+    print(output); //UA
 ```
 
 ## Additional information
