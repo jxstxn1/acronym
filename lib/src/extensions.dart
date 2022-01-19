@@ -5,8 +5,7 @@ extension RemovePunctuation on String {
   /// Example:
   ///    "Hello, World!" -> "Hello World"
   String removePunctuation() {
-    const String regex =
-        r'[^\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Connector_Punctuation}\p{Join_Control}\s]+';
+    const String regex = r'[^\p{Alphabetic}\p{Mark}\p{Decimal_Number}\p{Connector_Punctuation}\p{Join_Control}\s]+';
     return replaceAll(RegExp(regex, unicode: true), '');
   }
 }
@@ -22,7 +21,7 @@ extension Tokenize on String {
 
 extension AcronymString on String {
   /// Create a acronym from a string
-  /// Uses [englishStopWords] as default
+  /// Uses [EnglishStopWords][stopWords] as default
   ///
   /// Example:
   /// "The United States of America" -> "USA"

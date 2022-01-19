@@ -8,8 +8,7 @@ class Acronym {
   /// Generates a acronym out of the given String.
   ///
   /// [input] - The String to generate the acronym from.
-  /// [returnType] - The return type of the acronym.
-  /// [stopwords] - A list of words to exclude from the acronym.
+  /// [stopWords] - A list of words to exclude from the acronym.
   ///
   /// Throws a [ArgumentError] if the [input] only contains punctuation symbols.
   ///
@@ -22,7 +21,8 @@ class Acronym {
     final clearedString = titleCaseString.removePunctuation();
     if (clearedString.isEmpty) {
       throw ArgumentError(
-          'String contained no letters. Cannot create acronym. String: $input');
+        'String contained no letters. Cannot create acronym. String: $input',
+      );
     }
     final List<String> words = clearedString.tokenize();
     for (int i = 0; i < words.length; i++) {
