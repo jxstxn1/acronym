@@ -13,7 +13,6 @@ import 'package:recase/recase.dart';
 ///
 /// Returns a String containing the acronym.
 String generateAcronym(String input, {List<String>? stopWords}) {
-  String acronym = '';
   final _stopWords = stopWords ?? word.stopWords;
   final ReCase recase = ReCase(input);
   final titleCaseString = recase.titleCase;
@@ -24,10 +23,8 @@ String generateAcronym(String input, {List<String>? stopWords}) {
     );
   }
   final List<String> words = clearedString.tokenize();
-  for (int i = 0; i < words.length; i++) {
-    if (!_stopWords.contains(words[i].toLowerCase())) {
-      acronym += words[i][0];
-    }
-  }
+  final filtered =
+      words.where((it) => !_stopWords.contains(it.toLowerCase())).toList();
+  final acronym = filtered.map((it) => it[0]).join();
   return acronym;
 }
