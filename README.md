@@ -25,10 +25,11 @@ You can use it with stop words like this:
 import 'package:acronym/acronym.dart';
 
 const String input = "The United States of America";
-final String output1 = input.toAcronym(stopWords: stopWords);
+final String output = input.toAcronym(stopWords: stopWords);
 
 final String output1 = generateAcronym(input, stopWords: stopWords);
 print(output); // "USA"
+print(output1); // "USA"
 ```
 
 Add your own stop words:
