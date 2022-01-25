@@ -12,7 +12,11 @@ import 'package:recase/recase.dart';
 /// Throws a [ArgumentError] if the [input] only contains punctuation symbols.
 ///
 /// Returns a String containing the acronym.
-String generateAcronym(String input, {List<String>? stopWords}) {
+String generateAcronym(
+  String input, {
+  List<String>? stopWords,
+  bool splitSyllables = false,
+}) {
   final _stopWords = stopWords ?? word.stopWords;
   final ReCase recase = ReCase(input);
   final titleCaseString = recase.titleCase;
@@ -22,9 +26,18 @@ String generateAcronym(String input, {List<String>? stopWords}) {
       'String contained no letters. Cannot create acronym. String: $input',
     );
   }
-  final List<String> words = clearedString.tokenize();
-  final filtered =
-      words.where((it) => !_stopWords.contains(it.toLowerCase())).toList();
+  final List<String> tokenizedWords = clearedString.tokenize();
+  final List<String> syllableWords = [];
+  if (splitSyllables) {
+    for (final element in tokenizedWords) {
+      syllableWords.addAll(element.toSyllable());
+    }
+  } else {
+    syllableWords.addAll(tokenizedWords);
+  }
+  final filtered = syllableWords
+      .where((it) => !_stopWords.contains(it.toLowerCase()))
+      .toList();
   final acronym = filtered.map((it) => it[0]).join();
   return acronym;
 }

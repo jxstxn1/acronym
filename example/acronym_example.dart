@@ -22,4 +22,8 @@ void main() {
   // Generate the acronym with the extension using the [stopWords] to exlude the words ["the", "of", "states"]
   final String output4 = input.toAcronym(stopWords: stopWords);
   print(output4); // "UA"
+
+  // Generate the acronym using the [splitSyllables] flag
+  final String output5 = input.toAcronym(splitSyllables: true);
+  print(output5); // UtStArc
 }

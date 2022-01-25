@@ -26,7 +26,25 @@ extension AcronymString on String {
   ///
   /// Example:
   /// "The United States of America" -> "USA"
-  String toAcronym({List<String>? stopWords}) {
-    return generateAcronym(this, stopWords: stopWords);
+  String toAcronym({List<String>? stopWords, bool splitSyllables = false}) {
+    return generateAcronym(
+      this,
+      stopWords: stopWords,
+      splitSyllables: splitSyllables,
+    );
+  }
+}
+
+extension Syllables on String {
+  List<String> toSyllable() {
+    final RegExp syllableRegex =
+        RegExp(r"[^aeiouy]*[aeiouy]+(?:[^aeiouy]*$|[^aeiouy](?=[^aeiouy]))?");
+    final List<String> syllables = splitMapJoin(
+      syllableRegex,
+      onMatch: (m) => '${m[0]} ',
+      onNonMatch: (n) => '$n ',
+    ).split(' ')
+      ..removeWhere((it) => it.isEmpty);
+    return syllables;
   }
 }

@@ -50,6 +50,7 @@ void main() {
     const String input = "The United States of America";
     expect(generateAcronym(input, stopWords: []), equals('TUSOA'));
   });
+
   group('Should create acronyms for "The United States of America"', () {
     const String input = "The United States of America";
     const List<String> stopWords = ["the", "of", "states"];
@@ -62,6 +63,9 @@ void main() {
         equals('UA'),
       );
     });
+    test('should return "USA"', () {
+      expect(generateAcronym(input, splitSyllables: true), equals('UtStArc'));
+    });
   });
 
   group('Should create acronyms for "phntm.xyz/sidekick"', () {
@@ -69,6 +73,9 @@ void main() {
     const List<String> stopWords = ["phntm", "xyz"];
     test('should return "PXS"', () {
       expect(generateAcronym(input), equals('PXS'));
+    });
+    test('should return "PXS"', () {
+      expect(generateAcronym(input, splitSyllables: true), equals('PXSdk'));
     });
     test('should return "S"', () {
       expect(

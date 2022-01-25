@@ -4,3 +4,5 @@
 - Add extension and improved Package API
 ## 0.3.0
 - Rename extension to `toAcronym()`
+## 0.4.0
+- Add slitSyllables. Now you can separate a word into its Syllables and generate the acronym for it

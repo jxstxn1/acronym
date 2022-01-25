@@ -1,6 +1,6 @@
 name: acronym
 description: A simple, lightweight and easy to use package to generate acronyms.
-version: 0.3.0
+version: 0.4.0
 homepage: https://jxstxn.de
 repository: https://github.com/jxstxn1/acronym
 
@@ -10,6 +10,8 @@ environment:
 
 dependencies:
   recase: ^4.0.0
+
+  
 
 dev_dependencies:
   lint: ^1.0.0

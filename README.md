@@ -50,3 +50,12 @@ const String input = "The United States of America";
 final String output = input.toAcronym(stopWords: []);
 print(output); //TUSOA
 ```
+
+If you want to generate the acronym out of its syllables just add the splitSyllables Flag
+```dart
+import 'package:acronym/acronym.dart';
+
+const String input = "The United States of America";
+final String output5 = input.toAcronym(splitSyllables: true);
+print(output5); // UtStArc
+```
