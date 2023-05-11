@@ -17,7 +17,7 @@ String generateAcronym(
   List<String>? stopWords,
   bool splitSyllables = false,
 }) {
-  final _stopWords = stopWords ?? word.stopWords;
+  final stopingWords = stopWords ?? word.stopWords;
   final ReCase recase = ReCase(input);
   final titleCaseString = recase.titleCase;
   final clearedString = titleCaseString.removePunctuation();
@@ -35,9 +35,7 @@ String generateAcronym(
   } else {
     syllableWords.addAll(tokenizedWords);
   }
-  final filtered = syllableWords
-      .where((it) => !_stopWords.contains(it.toLowerCase()))
-      .toList();
+  final filtered = syllableWords.where((it) => !stopingWords.contains(it.toLowerCase())).toList();
   final acronym = filtered.map((it) => it[0]).join();
   return acronym;
 }
