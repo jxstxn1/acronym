@@ -1,3 +1,7 @@
+## 0.5.1
+
+- fix formatting
+
 ## 0.5.0
 
 - min_dart version is now 2.18.0

@@ -35,7 +35,9 @@ String generateAcronym(
   } else {
     syllableWords.addAll(tokenizedWords);
   }
-  final filtered = syllableWords.where((it) => !stopingWords.contains(it.toLowerCase())).toList();
+  final filtered = syllableWords
+      .where((it) => !stopingWords.contains(it.toLowerCase()))
+      .toList();
   final acronym = filtered.map((it) => it[0]).join();
   return acronym;
 }
