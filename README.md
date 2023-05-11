@@ -3,6 +3,7 @@ A simple, lightweight and easy to use package to generate acronyms.
 ## Usage
 
 You can use it with the standard arguments to generate your acronym:
+
 ```dart
 import 'package:acronym/acronym.dart';
 
@@ -12,6 +13,7 @@ print(output); // "USA"
 ```
 
 Sample usage with the extension:
+
 ```dart
 import 'package:acronym/acronym.dart';
 
@@ -21,6 +23,7 @@ print(output); // "USA"
 ```
 
 You can use it with stop words like this:
+
 ```dart
 import 'package:acronym/acronym.dart';
 
@@ -33,6 +36,7 @@ print(output1); // "USA"
 ```
 
 Add your own stop words:
+
 ```dart
 import 'package:acronym/acronym.dart';
 
@@ -43,6 +47,7 @@ print(output); //UA
 ```
 
 If you want to generate the Acronym without any words you can do it like this
+
 ```dart
 import 'package:acronym/acronym.dart';
 
@@ -52,6 +57,7 @@ print(output); //TUSOA
 ```
 
 If you want to generate the acronym out of its syllables just add the splitSyllables Flag
+
 ```dart
 import 'package:acronym/acronym.dart';
 
